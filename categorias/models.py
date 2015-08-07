@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+
+import os
+from django.db import models
+from django.dispatch import receiver
+from django.db.models.signals import pre_delete
+from django.core.urlresolvers import reverse
+from django.utils.text import slugify
+from django.utils.html import format_html
+from django.utils.crypto import get_random_string
+
+
+class SlugMixin(object):
+
+    def get_slug(self, text, model):
+        slug_text = slugify(text)
+        # count = 2
+        # fecha_ano = datetime.date.year()
+
+        slug = slug_text
+#        while(model._default_manager.filter(slug=slug).exists()):
+#            slug = '{0}-{1}'.format(slug_text, count)
+
+        return slug
+
+
+# FUNCION PARA CAMBIAR EL NOMBRE DE LA IMAGEN COMPONIENDOLO CON EL SLUG_DIEZ_CARACTERES_RANDOM.EXTENCION
+def change_file_name(self, imagefilename):
+    ext = imagefilename.split('.')[-1]
+    imagefilename = "%s_%s.%s" % (self.slug, get_random_string(10), ext)
+
+    return os.path.join('fotos_categoria', imagefilename)
+
+
+class Categoria(SlugMixin, models.Model):
+    CAT_M = (
+        ('ninguno', 'Ninguno'),
+        ('comedores', 'Comedores'),
+        ('cocinas', 'Cocinas'),
+        ('cunas', 'Cunas'),
+        ('chifoniers', 'Chifoniers'),
+        ('recamaras', 'Recamaras'),
+        )
+    cat_mueble = models.CharField("Categoria del mueble", max_length=10, choices=CAT_M, default='ninguno')
+    imagen_categoria = models.ImageField("Foto de Categoria", upload_to=change_file_name, max_length=50)
+    slug = models.CharField(max_length=140, unique=True, blank=True)
+
+    def get_absolute_url(self):
+        return '/%s/' % self.cat_mueble
+#        return reverse('detailcomedores', kwargs={"slug": self.slug})
+
+    def __unicode__(self):
+        return self.cat_mueble
+
+    def save(self, *args, **kargs):
+        self.slug = self.get_slug(self.cat_mueble, Categoria)
+        super(Categoria, self).save(*args, **kargs)
+#    """MOSTRAR IMAGENES DEL ADMINISTRADOR"""
+#    def foto_categoria(self):
+#        return format_html('<img src="%s">' % self.imagen_categoria.url)
+#    foto_categoria.allow_tags = True
+
+
+@receiver(pre_delete, sender=Categoria)
+def delte_fotos(sender, instance, **kwargs):
+    instance.imagen_categoria.delete(False)
+    """BORRAR LOS ARCHIVOS DE LA CARPETA DESPUES DE ELIMINAAR DE LA BD"""
