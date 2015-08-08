@@ -1,7 +1,7 @@
 # Back-End para Landing Pages
 Back-End para Landing Pages
 
-<p>Proyecto creado en Python & Djanto 1.8, para la creaci&oacute;n de una aplicaci&oacute; que sirva como Back-End <br>
+<p>Proyecto creado en Python & Djanto 1.8, para la creaci&oacute;n de una aplicaci&oacute;n que sirva como Back-End <br>
 para (ejemplo) varios proyectos.
 </p>
 <br>
