@@ -172,7 +172,7 @@ EMAIL_PORT = 587
 """EMAIL_HOST_USER = 'EMAIL_HOST_USER'"""
 EMAIL_HOST_USER = 'nomackayu@gmail.com'
 """EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'"""
-EMAIL_HOST_PASSWORD = 'ezlcnvqqbiuhlgje'
+EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 
 # ----------------------SEND EMAILS----------------------
 # ---------------------------------- django-ckeditor ----------------------------------
