@@ -82,6 +82,7 @@ class ContactFormView(FormView):
         recipients = ['rodolfougaldeochoa@gmail.com']
 
         mail = EmailMessage(subject, body, sender, recipients, reply_to=['noreply@gmail.com'])
+        # import ipdb; ipdb.set_trace() # ESTO ES PARA DEBUGEAR
         mail.send()
 
         return super(ContactFormView, self). form_valid(form)
