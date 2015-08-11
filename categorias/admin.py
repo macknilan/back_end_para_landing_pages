@@ -8,6 +8,7 @@ from .models import Categoria
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
+    # import ipdb; ipdb.set_trace() # ESTO ES PARA DEBUGEAR
     list_display = ('cat_mueble', 'slug', 'imagen_categoria', 'foto_categoria', )
     list_filter = ('cat_mueble', 'slug', )
     search_fields = ['cat_mueble', ]
