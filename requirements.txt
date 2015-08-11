@@ -1,6 +1,10 @@
 Django==1.8.3
 django-ckeditor==4.5.1
+django-extensions==1.5.5
 easy-thumbnails==2.2
+ipdb==0.8.1
+ipython==3.2.1
 Pillow==2.9.0
 psycopg2==2.6.1
+six==1.9.0
 sorl-thumbnail==12.3

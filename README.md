@@ -5,16 +5,17 @@ Back-End para Landing Pages
 para (ejemplo) varios proyectos.
 </p>
 <br>
-<dl>
-    <dt>requirements.txt</dt>
-    <dd>Django==1.8.3</dd>
-    <dd>django-ckeditor==4.5.1</dd>
-    <dd>easy-thumbnails==2.2</dd>
-    <dd>Pillow==2.9.0</dd>
-    <dd>psycopg2==2.6.1</dd>
-    <dd>sorl-thumbnail==12.3</dd>
-</dl>
-
-
+<strong>requirements.txt</strong>
+    <div>Django==1.8.3</div>
+    <div>django-ckeditor==4.5.1</div>
+    <div>django-extensions==1.5.5</div>
+    <div>easy-thumbnails==2.2</div>
+    <div>ipdb==0.8.1</div>
+    <div>ipython==3.2.1</div>
+    <div>Pillow==2.9.0</div>
+    <div>psycopg2==2.6.1</div>
+    <div>six==1.9.0</div>
+    <div>sorl-thumbnail==12.3</div>
+<br>
 <hr>
 <h6>rodolfougaldeochoa@gmail.com</h6>

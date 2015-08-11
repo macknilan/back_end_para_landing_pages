@@ -22,9 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^!_a-^xirka#e9%3bk!46ni5&m*b75#wk=3+_ziomyf2eg#a_*'
+# SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'sorl.thumbnail',
     'ckeditor',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,7 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'muebleria.wsgi.application'
 
 
-# ---------------------- DATABASE ----------------------
+# --------------------------------- DATABASE ---------------------------------
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 # user -> PVsXZdPM8bHdmDr
 # db -> pkJ7QmbV6JyRAwh
@@ -104,7 +106,7 @@ DATABASES = {
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-# ---------------------- DATABASE ----------------------
+# --------------------------------- DATABASE ---------------------------------
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -118,20 +120,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# --------------------easy_thumbnails--------------------
-# THUMBNAIL_ALIASES = {
-#     '': {
-#         'foto_1': {'size': (1200, 600), 'crop': 'smart', 'quality': 95},
-#         'foto_2': {'size': (1200, 600), 'crop': 'smart', 'quality': 95},
-#         'foto_3': {'size': (1200, 600), 'crop': 'smart', 'quality': 95},
-#         'foto_4': {'size': (1200, 600), 'crop': 'smart', 'quality': 95},
-#         'foto_5': {'size': (1200, 600), 'crop': 'smart', 'quality': 95},
-# 'imagen_categoria': {'size': (600, 600), 'crop': 'scale', 'quality': 95},
-#     },
-# }
-# THUMBNAIL_HIGH_RESOLUTION = True
-# --------------------easy_thumbnails--------------------
 
 # ----------------------STATIC & MEDIA FIELDS----------------------
 # Static files (CSS, JavaScript, Images)
@@ -157,10 +145,10 @@ STATICFILES_FINDERS = (
 )
 
 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.sep.join(
     os.path.abspath(__file__).split(os.sep)[:-2] + ['muebleria/media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
-MEDIA_URL = '/media/'
 
 # ----------------------STATIC & MEDIA FIELDS----------------------
 # ----------------------SEND EMAILS----------------------
