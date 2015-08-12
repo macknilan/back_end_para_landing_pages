@@ -3995,28 +3995,28 @@ footer .row-content.buffer {
 
 .iphone-mockup,
 .iphone-mockup.black {
-    background: url("img/mockups/iphone-black.svg") no-repeat;
+    background: url("/static/img/mockups/iphone-black.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup,
 .no-svg .iphone-mockup.black {
-    background: url("img/mockups/iphone-black.png") no-repeat;
+    background: url("/static/img/mockups/iphone-black.png") no-repeat;
 }
 
 .iphone-mockup.white {
-    background: url("img/mockups/iphone-white.svg") no-repeat;
+    background: url("/static/img/mockups/iphone-white.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup.white {
-    background: url("img/mockups/iphone-white.png") no-repeat;
+    background: url("/static/img/mockups/iphone-white.png") no-repeat;
 }
 
 .iphone-mockup.grey {
-    background: url("img/mockups/iphone-grey.svg") no-repeat;
+    background: url("/static/img/mockups/iphone-grey.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup.grey {
-    background: url("img/mockups/iphone-grey.png") no-repeat;
+    background: url("/static/img/mockups/iphone-grey.png") no-repeat;
 }
 
 .iphone-mockup,
@@ -4068,28 +4068,28 @@ footer .row-content.buffer {
 
 .ipad-mockup,
 .ipad-mockup.black {
-    background: url("img/mockups/ipad-black.svg") no-repeat;
+    background: url("/static/img/mockups/ipad-black.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup,
 .no-svg .ipad-mockup.black {
-    background: url("img/mockups/ipad-black.png") no-repeat;
+    background: url("/static/img/mockups/ipad-black.png") no-repeat;
 }
 
 .ipad-mockup.white {
-    background: url("img/mockups/ipad-white.svg") no-repeat;
+    background: url("/static/img/mockups/ipad-white.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup.white {
-    background: url("img/mockups/ipad-white.png") no-repeat;
+    background: url("/static/img/mockups/ipad-white.png") no-repeat;
 }
 
 .ipad-mockup.grey {
-    background: url("img/mockups/ipad-grey.svg") no-repeat;
+    background: url("/static/img/mockups/ipad-grey.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup.grey {
-    background: url("img/mockups/ipad-grey.png") no-repeat;
+    background: url("/static/img/mockups/ipad-grey.png") no-repeat;
 }
 
 .ipad-mockup,
@@ -4132,12 +4132,12 @@ footer .row-content.buffer {
     left: 50%;
     margin-left: -315px;
     width: 630px;
-    background: url("img/mockups/desktop.svg") no-repeat;
+    background: url("/static/img/mockups/desktop.svg") no-repeat;
     background-size: 630px 462px !important;
 }
 
 .no-svg .desktop-mockup {
-    background: url("img/mockups/desktop.png") no-repeat;
+    background: url("/static/img/mockups/desktop.png") no-repeat;
 }
 
 .desktop-mockup,
@@ -4413,7 +4413,7 @@ footer .row-content.buffer {
 
 .owl-item.loading {
     min-height: 150px;
-    background: url(img/AjaxLoader.gif) no-repeat center center;
+    background: url(/static/img/AjaxLoader.gif) no-repeat center center;
 }
 
 .owl-theme .owl-controls .owl-buttons div {
@@ -4563,7 +4563,7 @@ footer .row-content.buffer {
 
 /* mouse grab icon */
 .grabbing {
-    cursor: url(img/grabbing.png) 8 8, move;
+    cursor: url(/static/img/grabbing.png) 8 8, move;
 }
 
 /* fix */

@@ -6,9 +6,11 @@ from .base import *
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^!_a-^xirka#e9%3bk!46ni5&m*b75#wk=3+_ziomyf2eg#a_*'
 # SECRET_KEY = os.environ['SECRET_KEY']
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS += (
     'django_extensions',
@@ -17,17 +19,15 @@ INSTALLED_APPS += (
 
 # --------------------------------- DATABASE ---------------------------------
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-# user -> PVsXZdPM8bHdmDr
-# db -> pkJ7QmbV6JyRAwh
-# pwd -> mfq9CWcfMffkVQ3
-#
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pkj7qmbv6jyrawh',
+        #  'NAME': 'NAME',
         'USER': 'pvsxzdpm8bhdmdr',
+        #  'USER': 'USER',
         'PASSWORD': 'mfq9CWcfMffkVQ3',
+        #  'PASSWORD': 'PASSWORD',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -70,10 +70,9 @@ STATICFILES_FINDERS = (
 )
 
 
-MEDIA_ROOT = os.sep.join(
-    os.path.abspath(__file__).split(os.sep)[:-2] + ['muebleria/media'])
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['muebleria/media'])
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 
 # --------------------------------- STATIC & MEDIA FIELDS ---------------------------------
 # --------------------------------- SEND EMAILS ---------------------------------

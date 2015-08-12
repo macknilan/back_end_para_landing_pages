@@ -25,23 +25,27 @@ urlpatterns = [
     url(r'', include('muebles.urls')),
     url(r'', include('categorias.urls')),
 ]
-handler404 = 'views.page_404'
-handler500 = 'views.page_500'
+#  handler404 = 'views.page_404'
+#  handler500 = 'views.page_500'
 
 
-# PARA SERVIR LOS ARCHIVOS ESTATICOS EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB ESTA EN TRUE
+# PARA SERVIR LOS ARCHIVOS ESTATICOS EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB ESTA EN TRUE
+# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB ESTA EN TRUE
+
+# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 # if settings.DEBUG:
 #    urlpatterns += [
 #        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, }),
 #        ]
 
+# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

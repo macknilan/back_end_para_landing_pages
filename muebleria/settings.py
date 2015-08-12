@@ -22,12 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^!_a-^xirka#e9%3bk!46ni5&m*b75#wk=3+_ziomyf2eg#a_*'
-# SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,15 +37,18 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'muebleria',
     'muebles',
     'categorias',
-    'easy_thumbnails',
     'sorl.thumbnail',
     'ckeditor',
+    'storages',
     'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
+    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA 1ra LINEA
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,6 +57,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA ULTIMA LINEA
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'muebleria.urls'
@@ -81,13 +85,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'muebleria.wsgi.application'
 
+# --------------------------------- CACHE ---------------------------------
+# PARA NO PEGARLE TAN DURO A LA b.d.
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+# --------------------------------- CACHE ---------------------------------
+
 
 # --------------------------------- DATABASE ---------------------------------
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-# user -> PVsXZdPM8bHdmDr
-# db -> pkJ7QmbV6JyRAwh
-# pwd -> mfq9CWcfMffkVQ3
-#
 
 DATABASES = {
     'default': {
@@ -121,21 +126,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-# ----------------------STATIC & MEDIA FIELDS----------------------
+# ---------------------- STATIC & MEDIA FIELDS ----------------------
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-STATIC_ROOT = os.sep.join(
-    os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'muebleria/static'),
 )
+
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 STATICFILES_FINDERS = (
     # BUSCA LOS ARCHIVOS ESTATICOS EN EL SISTEMA DE ARCHIVOS
@@ -144,13 +148,28 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.sep.join(
-    os.path.abspath(__file__).split(os.sep)[:-2] + ['muebleria/media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
+MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 
-# ----------------------STATIC & MEDIA FIELDS----------------------
+# ---------------------- STATIC & MEDIA FIELDS ----------------------
+# ---------------------- AWS S3 SETTINGS ----------------------
+AWS_STORAGE_BUCKET_NAME = 'muebleria'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+#  AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+#  AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+
+# ---------------------- AWS S3 SETTINGS ----------------------
+
 # ----------------------SEND EMAILS----------------------
 
 EMAIL_USE_TLS = True
