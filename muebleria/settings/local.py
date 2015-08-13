@@ -1,33 +1,26 @@
+# -*- coding: utf-8 -*-
 from .base import *
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^!_a-^xirka#e9%3bk!46ni5&m*b75#wk=3+_ziomyf2eg#a_*'
-# SECRET_KEY = os.environ['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+SECRET_KEY = os.environ['MUEBLERIALLAVE']
 
 INSTALLED_APPS += (
     'django_extensions',
 )
 
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 # --------------------------------- DATABASE ---------------------------------
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pkj7qmbv6jyrawh',
-        #  'NAME': 'NAME',
-        'USER': 'pvsxzdpm8bhdmdr',
-        #  'USER': 'USER',
-        'PASSWORD': 'mfq9CWcfMffkVQ3',
-        #  'PASSWORD': 'PASSWORD',
+        'NAME': os.environ['MUEBLERIANAME'],
+        'USER': os.environ['MUEBLERIAUSER'],
+        'PASSWORD': os.environ['MUEBLERIAPASSWORD'],
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -41,26 +34,18 @@ DATABASES = {
 # }
 # --------------------------------- DATABASE ---------------------------------
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'America/Mexico_City'
-
-
-# --------------------------------- STATIC & MEDIA FIELDS ---------------------------------
+# ---------------------- STATIC & MEDIA FIELDS ----------------------
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-STATIC_ROOT = os.sep.join(
-    os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
-
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'muebleria/static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'muebleria/static'),)
+
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 STATICFILES_FINDERS = (
     # BUSCA LOS ARCHIVOS ESTATICOS EN EL SISTEMA DE ARCHIVOS
@@ -69,14 +54,13 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['muebleria/media'])
+
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
+MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 
-# --------------------------------- STATIC & MEDIA FIELDS ---------------------------------
-# --------------------------------- SEND EMAILS ---------------------------------
-
+# ---------------------- STATIC & MEDIA FIELDS ----------------------
+# ----------------------SEND EMAILS----------------------
 EMAIL_USE_TLS = True
 """EMAIL_HOST = 'EMAIL_HOST'"""
 EMAIL_HOST = 'smtp.gmail.com'
@@ -85,9 +69,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'nomackayu@gmail.com'
 """EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'"""
 EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
-
-# --------------------------------- SEND EMAILS ---------------------------------
-# --------------------------------- django-ckeditor ---------------------------------
+# ----------------------SEND EMAILS----------------------
+# ---------------------------------- django-ckeditor ----------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {
@@ -110,7 +93,12 @@ CKEDITOR_CONFIGS = {
         'forcePasteAsPlainText': True,
     },
 }
-# --------------------------------- django-ckeditor ---------------------------------
+# ---------------------------------- django-ckeditor ----------------------------------
+
+
+
+
+
 
 
 

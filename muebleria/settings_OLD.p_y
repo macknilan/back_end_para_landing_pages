@@ -90,7 +90,6 @@ WSGI_APPLICATION = 'muebleria.wsgi.application'
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # --------------------------------- CACHE ---------------------------------
 
-
 # --------------------------------- DATABASE ---------------------------------
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 

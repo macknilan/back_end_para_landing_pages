@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 """
 Django settings for muebleria project.
 
@@ -17,6 +17,11 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+
+# Application definition
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,14 +29,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'muebleria',
     'muebles',
     'categorias',
-    'easy_thumbnails',
     'sorl.thumbnail',
     'ckeditor',
 )
 
 MIDDLEWARE_CLASSES = (
+    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA 1ra LINEA
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,6 +47,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA ULTIMA LINEA
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'muebleria.urls'
@@ -69,11 +78,85 @@ WSGI_APPLICATION = 'muebleria.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'America/Mexico_City'
+
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
