@@ -14,7 +14,9 @@ class MuebleAdmin(admin.ModelAdmin):
     list_editable = ('modelo', 'descripcion', 'dimensiones', 'categoria', 'oferta', 'precio', )
     prepopulate_fields = {"slug": ("modelo",)}
 
-    """MOSTRAR IMAGENES DEL ADMINISTRADOR"""
+    """
+    MOSTRAR IMAGENES DEL ADMINISTRADOR
+    """
     def foto_uno(self, obj):
         return '<img src="%s">' % get_thumbnail(obj.foto_1, '450x450', quality=99).url
     foto_uno.allow_tags = True

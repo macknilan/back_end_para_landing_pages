@@ -24,8 +24,10 @@ class SlugMixin(object):
         return slug
 
 
-# FUNCION PARA CAMBIAR EL NOMBRE DE LA IMAGEN COMPONIENDOLO CON EL SLUG_DIEZ_CARACTERES_RANDOM.EXTENCION
 def change_file_name(self, imagefilename):
+    """
+    FUNCION PARA CAMBIAR EL NOMBRE DE LA IMAGEN COMPONIENDOLO CON EL SLUG_DIEZ_CARACTERES_RANDOM.EXTENCION
+    """
     ext = imagefilename.split('.')[-1]
     imagefilename = "%s_%s.%s" % (self.slug, get_random_string(10), ext)
 
@@ -63,5 +65,7 @@ class Categoria(SlugMixin, models.Model):
 
 @receiver(pre_delete, sender=Categoria)
 def delte_fotos(sender, instance, **kwargs):
+    """
+    BORRAR LOS ARCHIVOS DE LA CARPETA DESPUES DE ELIMINAAR DE LA BD
+    """
     instance.imagen_categoria.delete(False)
-    """BORRAR LOS ARCHIVOS DE LA CARPETA DESPUES DE ELIMINAAR DE LA BD"""

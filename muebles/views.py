@@ -6,18 +6,24 @@ from django.views.generic import ListView, DetailView
 from categorias.models import Categoria
 from .models import Mueble
 
-# FUNCION PARA PERSONALIZAR LA PAGINA DE ERROR 404 _FALTA SOLUCIONAR_
 def page_404(request):
+    """
+    FUNCION PARA PERSONALIZAR LA PAGINA DE ERROR 404 _FALTA SOLUCIONAR_
+    """
     return render(request, '404.html')
 
 
-# FUNCION PARA PERSONALIZAR LA PAGINA DE ERROR 500 _FALTA SOLUCIONAR_
 def page_500(request):
+    """
+    FUNCION PARA PERSONALIZAR LA PAGINA DE ERROR 500 _FALTA SOLUCIONAR_
+    """
     return render(request, '500.html')
 
 
-# CLASE PARA MOSTRAR LAS FOTOGRAFIAS EN LA PAGINA INCIAL
 class HomeView(TemplateView):
+    """
+    CLASE PARA MOSTRAR LAS FOTOGRAFIAS EN LA PAGINA INCIAL
+    """
     template_name = "index.html"
 
     def get_context_data(self, **kwargs):
@@ -26,8 +32,10 @@ class HomeView(TemplateView):
         return context
 
 
-# CLASE PARA MOSTRAR LOS COMEDORES EN FORMA DE DETALLE/INDIVIDUAL
 class ComedoresTemplateDetailView(DetailView):
+    """
+    CLASE PARA MOSTRAR LOS COMEDORES EN FORMA DE DETALLE/INDIVIDUAL
+    """
     model = Mueble
     template_name = "MuebleTemplateDetailView.html"
 
@@ -42,8 +50,10 @@ class ComedoresTemplateDetailView(DetailView):
         return context
 
 
-# CLASE PARA MOSTRAR LOS COCINAS EN FORMA DE DETALLE/INDIVIDUAL
 class CocinasTemplateDetailView(DetailView):
+    """
+    CLASE PARA MOSTRAR LOS COCINAS EN FORMA DE DETALLE/INDIVIDUAL
+    """
     model = Mueble
     template_name = "MuebleTemplateDetailView.html"
 
@@ -58,8 +68,10 @@ class CocinasTemplateDetailView(DetailView):
         return context
 
 
-# CLASE PARA MOSTRAR LOS CHIFONIERS EN FORMA DE DETALLE/INDIVIDUAL
 class ChifoniersTemplateDetailView(DetailView):
+    """
+    CLASE PARA MOSTRAR LOS CHIFONIERS EN FORMA DE DETALLE/INDIVIDUAL
+    """
     model = Mueble
     template_name = "MuebleTemplateDetailView.html"
 
@@ -74,8 +86,10 @@ class ChifoniersTemplateDetailView(DetailView):
         return context
 
 
-# CLASE PARA MOSTRAR LOS CUNAS EN FORMA DE DETALLE/INDIVIDUAL
 class CunasTemplateDetailView(DetailView):
+    """
+    CLASE PARA MOSTRAR LOS CUNAS EN FORMA DE DETALLE/INDIVIDUAL
+    """
     model = Mueble
     template_name = "MuebleTemplateDetailView.html"
 

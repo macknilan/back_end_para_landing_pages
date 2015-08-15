@@ -29,23 +29,31 @@ urlpatterns = [
 #  handler500 = 'views.page_500'
 
 
-# PARA SERVIR LOS ARCHIVOS ESTATICOS EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 if settings.DEBUG:
+    """
+    PARA SERVIR LOS ARCHIVOS ESTATICOS EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+    """
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 if settings.DEBUG:
+    """
+    PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+    """
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
-# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 # if settings.DEBUG:
+    """
+    PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+    """
 #    urlpatterns += [
 #        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, }),
 #        ]
 
-# PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
 # if settings.DEBUG:
+    """
+    PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+    """
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

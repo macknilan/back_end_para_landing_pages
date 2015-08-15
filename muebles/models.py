@@ -6,16 +6,9 @@ from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
-# from django.utils.html import format_html
-# from datetime import date, timedelta, datetime
 from django.core.urlresolvers import reverse
 from categorias.models import Categoria
 from ckeditor.fields import RichTextField
-# from easy_thumbnails.fields import ThumbnailerImageField
-# from easy_thumbnails.signals import saved_file
-# from easy_thumbnails.signal_handlers import generate_aliases_global
-# from easy_thumbnails.files import get_thumbnailer
-# from sorl.thumbnail import delete
 
 
 class SlugMixin(object):
@@ -25,13 +18,16 @@ class SlugMixin(object):
         # fecha_ano = datetime.date.year()
 
         slug = slug_text
-#        while(model._default_manager.filter(slug=slug).exists()):
-#            slug = '{0}-{1}'.format(slug_text, count)
+        # while(model._default_manager.filter(slug=slug).exists()):
+        #     slug = '{0}-{1}'.format(slug_text, count)
 
         return slug
 
 
-def change_file_name(self, imagefilename):  # FUNCION PARA CAMBIAR EL NOMBRE DE LA IMAGEN COMPONIENDOLO CON EL SLUG_DIEZ_CARACTERES_RANDOM.EXTENCION
+def change_file_name(self, imagefilename):
+    """
+    FUNCION PARA CAMBIAR EL NOMBRE DE LA IMAGEN COMPONIENDOLO CON EL SLUG_DIEZ_CARACTERES_RANDOM.EXTENCION
+    """
     ext = imagefilename.split('.')[-1]
     imagefilename = "%s_%s.%s" % (self.slug, get_random_string(10), ext)
 
@@ -39,9 +35,9 @@ def change_file_name(self, imagefilename):  # FUNCION PARA CAMBIAR EL NOMBRE DE 
 
 
 class Mueble(SlugMixin, models.Model):
-#    descripcion = models.TextField("Descripcion del mueble", max_length=240)
+    # descripcion = models.TextField("Descripcion del mueble", max_length=240)
     descripcion = RichTextField()
-#    dimensiones = models.TextField("Dimenciones del mueble", max_length=240)
+    # dimensiones = models.TextField("Dimenciones del mueble", max_length=240)
     dimensiones = RichTextField()
     foto_1 = models.ImageField("Fotos del mueble 1", upload_to=change_file_name, max_length=50)  # blank=False POR DEFAULT
     foto_2 = models.ImageField("Fotos del mueble 2", upload_to=change_file_name, max_length=50)
@@ -49,7 +45,10 @@ class Mueble(SlugMixin, models.Model):
     foto_4 = models.ImageField("Fotos del mueble 4", upload_to=change_file_name, max_length=50)
     foto_5 = models.ImageField("Fotos del mueble 5", upload_to=change_file_name, max_length=50)
     modelo = models.CharField("Modelo (Nombre) ", max_length=40)
-    oferta = models.SmallIntegerField("¿Oferta?", default=0)  # CERO = NO TIENE OFERTA, DIFERENTE DE CERO SI TIENE OFERTA
+    oferta = models.SmallIntegerField("¿Oferta?", default=0)
+    """
+    CERO = NO TIENE OFERTA, DIFERENTE DE CERO SI TIENE OFERTA
+    """
     precio = models.DecimalField("Precio del mueble", max_digits=10, decimal_places=2)
     slug = models.CharField(max_length=140, unique=True, blank=True)
     categoria = models.ForeignKey(Categoria)
@@ -68,11 +67,11 @@ class Mueble(SlugMixin, models.Model):
 
 @receiver(pre_delete, sender=Mueble)
 def delte_fotos(sender, instance, **kwargs):
+    """BORRAR LOS ARCHIVOS DE LA CARPETA DESPUES DE ELIMINAAR DE LA BD"""
     instance.foto_1.delete(False)
     instance.foto_2.delete(False)
     instance.foto_3.delete(False)
     instance.foto_4.delete(False)
     instance.foto_5.delete(False)
-    """BORRAR LOS ARCHIVOS DE LA CARPETA DESPUES DE ELIMINAAR DE LA BD"""
 
 
