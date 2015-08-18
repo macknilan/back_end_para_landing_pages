@@ -40,7 +40,10 @@ DATABASES = {
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'muebleria/static'),)
+STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'muebleria/static'),
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
