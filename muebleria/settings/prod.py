@@ -46,7 +46,7 @@ STATICFILES_DIRS = (
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
+#  STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 STATICFILES_FINDERS = (
     # BUSCA LOS ARCHIVOS ESTATICOS EN EL SISTEMA DE ARCHIVOS
@@ -57,7 +57,7 @@ STATICFILES_FINDERS = (
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
-MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
+# MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ---------------------- AWS S3 SETTINGS ----------------------
