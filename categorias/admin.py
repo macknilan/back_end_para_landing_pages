@@ -13,7 +13,8 @@ class CategoriaAdmin(admin.ModelAdmin):
     list_filter = ('cat_mueble', 'slug', )
     search_fields = ['cat_mueble', ]
     readonly_fields = ('slug', )
-    prepopulated_fields = {"slug": ("cat_mueble",)}
+    # prepopulated_fields = {"slug": ("cat_mueble",)}
+
 
     def foto_categoria(self, obj):
         """

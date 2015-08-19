@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from django.contrib import admin
 from sorl.thumbnail import get_thumbnail
 from .models import Mueble
@@ -12,7 +13,7 @@ class MuebleAdmin(admin.ModelAdmin):
     search_fields = ['descripcion', 'modelo', ]
     readonly_fields = ('slug', )
     list_editable = ('modelo', 'descripcion', 'dimensiones', 'categoria', 'oferta', 'precio', )
-    prepopulate_fields = {"slug": ("modelo",)}
+    # prepopulated_fields = {"slug": ("modelo",)}
 
     """
     MOSTRAR IMAGENES DEL ADMINISTRADOR

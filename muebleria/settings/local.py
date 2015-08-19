@@ -46,7 +46,7 @@ STATICFILES_DIRS = (
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
 STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
@@ -62,6 +62,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 
+AWS_QUERYSTRING_AUTH = False
+CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ----------------------SEND EMAILS----------------------
 EMAIL_USE_TLS = True

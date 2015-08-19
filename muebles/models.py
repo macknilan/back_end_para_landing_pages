@@ -14,16 +14,12 @@ from ckeditor.fields import RichTextField
 class SlugMixin(object):
     def get_slug(self, text, model):
         slug_text = slugify(text)
-        """
-        count = 2
-        fecha_ano = datetime.date.year()
-        """
+        # count = 2
+        # fecha_ano = datetime.date.year()
 
         slug = slug_text
-        """
-        while(model._default_manager.filter(slug=slug).exists()):
-            slug = '{0}-{1}'.format(slug_text, count)
-        """
+        # while(model._default_manager.filter(slug=slug).exists()):
+        #    slug = '{0}-{1}'.format(slug_text, count)
         return slug
 
 
@@ -58,14 +54,14 @@ class Mueble(SlugMixin, models.Model):
 
     def get_absolute_url(self):
         return '/%s/%s/' % (self.categoria, self.slug)
-#        return reverse('detailcocinas', kwargs={'slug': self.slug})
+        # return reverse('detailcocinas', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
         self.slug = self.get_slug(self.modelo, Mueble)
         super(Mueble, self).save(*args, **kwargs)
 
-#    def __str__(self):
-#        return "%s - %s" % (self.modelo, self.descripcion)
+    # def __str__(self):
+    #    return "%s - %s" % (self.modelo, self.descripcion)
 
 
 @receiver(pre_delete, sender=Mueble)
