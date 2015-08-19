@@ -41,8 +41,8 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, 'muebleria/static'),
     os.path.join(BASE_DIR, 'static'),
+#    os.path.join(BASE_DIR, 'muebleria/static'),
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
@@ -74,7 +74,6 @@ EMAIL_HOST_USER = 'nomackayu@gmail.com'
 EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 # ----------------------SEND EMAILS----------------------
 # ---------------------------------- django-ckeditor ----------------------------------
-CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'UltraFull',

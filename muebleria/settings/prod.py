@@ -37,15 +37,15 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, 'muebleria/static'),
     os.path.join(BASE_DIR, 'static'),
+    #  os.path.join(BASE_DIR, 'static'),
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
 # STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
@@ -56,12 +56,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ---------------------- AWS S3 SETTINGS ----------------------
+AWS_QUERYSTRING_AUTH = False
+CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
 AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
@@ -80,8 +82,3 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 # Set this to True to avoid transmitting the session cookie over HTTP accidentally.
 # SESSION_COOKIE_SECURE = True
-
-
-
-
-
