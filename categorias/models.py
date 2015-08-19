@@ -52,9 +52,9 @@ class Categoria(SlugMixin, models.Model):
 
     def get_absolute_url(self):
         return '/%s/' % self.cat_mueble
-#        return reverse('detailcomedores', kwargs={"slug": self.slug})
+        #  return reverse('detailcomedores', kwargs={"slug": self.slug})
 
-    def __unicode__(self):
+    def __str__(self):
         return self.cat_mueble
 
     def save(self, *args, **kargs):
