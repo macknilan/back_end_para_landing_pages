@@ -15,7 +15,6 @@ class CategoriaAdmin(admin.ModelAdmin):
     readonly_fields = ('slug', )
     # prepopulated_fields = {"slug": ("cat_mueble",)}
 
-
     def foto_categoria(self, obj):
         """
         MOSTRAR IMAGENES DEL ADMINISTRADOR
