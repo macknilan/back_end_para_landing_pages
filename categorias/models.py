@@ -47,7 +47,7 @@ class Categoria(SlugMixin, models.Model):
     slug = models.CharField(max_length=140, unique=True, blank=True)
 
     def get_absolute_url(self):
-        return '/%s/' % (self.cat_mueble)
+        return '/%s/' % self.cat_mueble
         # return reverse('detailcomedores', kwargs={"slug": self.slug})
 
     def __str__(self):
