@@ -50,8 +50,8 @@ class Categoria(SlugMixin, models.Model):
         return '/%s/' % self.cat_mueble
         # return reverse('detailcomedores', kwargs={"slug": self.slug})
 
-    def __str__(self):
-        return self.cat_mueble
+    # def __str__(self):
+    #     return self.cat_mueble
 
     def save(self, *args, **kargs):
         self.slug = self.get_slug(self.cat_mueble, Categoria)
