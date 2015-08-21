@@ -42,7 +42,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-#    os.path.join(BASE_DIR, 'muebleria/static'),
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
@@ -59,11 +58,13 @@ STATICFILES_FINDERS = (
 
 MEDIA_URL = '/media/'
 
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 
+# ------------- CKEDITOR -------------
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
+# ------------- CKEDITOR -------------
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ----------------------SEND EMAILS----------------------
 EMAIL_USE_TLS = True

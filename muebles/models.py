@@ -60,8 +60,8 @@ class Mueble(SlugMixin, models.Model):
         self.slug = self.get_slug(self.modelo, Mueble)
         super(Mueble, self).save(*args, **kwargs)
 
-    # def __str__(self):
-    #    return "%s - %s" % (self.modelo, self.descripcion)
+    def __str__(self):
+        return "%s - %s" % (self.modelo, self.descripcion)
 
 
 @receiver(pre_delete, sender=Mueble)

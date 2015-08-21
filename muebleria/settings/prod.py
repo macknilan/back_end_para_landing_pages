@@ -41,7 +41,6 @@ DATABASES = {
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    #  os.path.join(BASE_DIR, 'static'),
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
@@ -63,7 +62,7 @@ STATICFILES_FINDERS = (
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ---------------------- AWS S3 SETTINGS ----------------------
 # ------------- CKEDITOR -------------
-# AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ------------- CKEDITOR -------------
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
@@ -74,8 +73,8 @@ STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 # ---------------------- AWS S3 SETTINGS ----------------------
 
 
