@@ -45,7 +45,7 @@ STATICFILES_DIRS = (
 )
 
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
 # STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
@@ -63,7 +63,7 @@ STATICFILES_FINDERS = (
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # ---------------------- AWS S3 SETTINGS ----------------------
 # ------------- CKEDITOR -------------
-AWS_QUERYSTRING_AUTH = False
+# AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ------------- CKEDITOR -------------
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
