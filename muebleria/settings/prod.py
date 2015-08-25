@@ -23,9 +23,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['MUEBLERIANAME'],
-        'USER': os.environ['MUEBLERIAUSER'],
-        'PASSWORD': os.environ['MUEBLERIAPASSWORD'],
+        'NAME': os.environ.get('MUEBLERIANAME'),
+        'USER': os.environ.get('MUEBLERIAUSER'),
+        'PASSWORD': os.environ.get('MUEBLERIAPASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
