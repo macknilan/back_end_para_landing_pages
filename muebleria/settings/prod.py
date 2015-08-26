@@ -2,7 +2,7 @@
 from .base import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['MUEBLERIALLAVE']
+SECRET_KEY = os.environ.get('MUEBLERIALLAVE')
 
 DEBUG = False
 
@@ -23,9 +23,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['MUEBLERIANAME'],
-        'USER': os.environ['MUEBLERIAUSER'],
-        'PASSWORD': os.environ['MUEBLERIAPASSWORD'],
+        'NAME': os.environ.get('MUEBLERIANAME')
+        'USER': os.environ.get('MUEBLERIAUSER')
+        'PASSWORD': os.environ.get('MUEBLERIAPASSWORD')
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -66,8 +66,8 @@ AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ------------- CKEDITOR -------------
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
-AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
-AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
