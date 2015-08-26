@@ -4,8 +4,11 @@ from django.shortcuts import render_to_response
 from random import shuffle
 from muebles.models import Mueble
 
-# LISTA DE MUEBLES RELACIONADOS COMO LINKS EN INFERIOR DE PAGINA
+
 def lista_link_muebles_relacionados(request):
+    """
+    LISTA DE MUEBLES RELACIONADOS COMO LINKS EN INFERIOR DE PAGINA
+    """
     categoria_mueble_comedor = list(Mueble.objects.filter(categoria__cat_mueble="comedores")[:4])
     shuffle(categoria_mueble_comedor)
     categoria_mueble_cocina = list(Mueble.objects.filter(categoria__cat_mueble="cocinas")[:4])
