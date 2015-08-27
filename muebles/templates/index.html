@@ -11,8 +11,9 @@
                     <a href="#" title=""><img src="/media/{{ picturescat.imagen_categoria }}"></a> 
                     -->
                     {% thumbnail picturescat.imagen_categoria "1800x600" as imagendecategoria %}
+                            <img src="{{ imagendecategoria.url }}" alt="">
                         {% empty %}
-                        <img src="{{ imagendecategoria.url }}" alt="">
+                            <p>NO IMAGEN</p>
                     {% endthumbnail %}
                 </div>
             {% endfor %}
