@@ -3,11 +3,12 @@
 
 from django.contrib import admin
 from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail.admin import AdminImageMixin
 from .models import Mueble
 
 
 @admin.register(Mueble)
-class MuebleAdmin(admin.ModelAdmin):
+class MuebleAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = ('slug', 'modelo', 'descripcion', 'dimensiones', 'categoria', 'oferta', 'precio', 'foto_uno', 'foto_dos', 'foto_tres', 'foto_cuatro', 'foto_cinco', )
     list_filter = ('modelo', 'categoria', )
     search_fields = ['descripcion', 'modelo', ]

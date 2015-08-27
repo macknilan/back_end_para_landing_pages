@@ -7,8 +7,9 @@ from django.dispatch import receiver
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
 from django.core.urlresolvers import reverse
-from categorias.models import Categoria
+from sorl.thumbnail import ImageField
 from ckeditor.fields import RichTextField
+from categorias.models import Categoria
 
 
 class SlugMixin(object):
@@ -38,11 +39,11 @@ class Mueble(SlugMixin, models.Model):
     descripcion = RichTextField()
     # dimensiones = models.TextField("Dimenciones del mueble", max_length=240)
     dimensiones = RichTextField()
-    foto_1 = models.ImageField("Fotos del mueble 1", upload_to=change_file_name, max_length=50)  # blank=False POR DEFAULT
-    foto_2 = models.ImageField("Fotos del mueble 2", upload_to=change_file_name, max_length=50)
-    foto_3 = models.ImageField("Fotos del mueble 3", upload_to=change_file_name, max_length=50)
-    foto_4 = models.ImageField("Fotos del mueble 4", upload_to=change_file_name, max_length=50)
-    foto_5 = models.ImageField("Fotos del mueble 5", upload_to=change_file_name, max_length=50)
+    foto_1 = ImageField("Fotos del mueble 1", upload_to=change_file_name, max_length=50)  # blank=False POR DEFAULT
+    foto_2 = ImageField("Fotos del mueble 2", upload_to=change_file_name, max_length=50)
+    foto_3 = ImageField("Fotos del mueble 3", upload_to=change_file_name, max_length=50)
+    foto_4 = ImageField("Fotos del mueble 4", upload_to=change_file_name, max_length=50)
+    foto_5 = ImageField("Fotos del mueble 5", upload_to=change_file_name, max_length=50)
     modelo = models.CharField("Modelo (Nombre) ", max_length=40)
     oferta = models.SmallIntegerField("¿Oferta?", default=0)
     """
