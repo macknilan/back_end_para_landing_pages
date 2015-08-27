@@ -76,7 +76,7 @@ MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 # ---------------------- AWS S3 SETTINGS ----------------------
-
+THUMBNAIL_FORCE_OVERWRITE = True
 
 # Set this to True to avoid transmitting the CSRF cookie over HTTP accidentally.
 # CSRF_COOKIE_SECURE = True
