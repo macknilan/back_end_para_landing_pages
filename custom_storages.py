@@ -8,9 +8,15 @@ from storages.backends.s3boto import S3BotoStorage
 
 
 class StaticStorage(S3BotoStorage):
+    """
+    ALMACENAMIENTO ARCHIVOS STATICOS
+    """
     location = settings.STATICFILES_LOCATION
 
 
 class MediaStorage(S3BotoStorage):
+    """
+    ALMACENAMIENTO PARA ARCHIVOS MEDIA
+    """
     location = settings.MEDIAFILES_LOCATION
 
