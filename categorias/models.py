@@ -4,10 +4,12 @@ import os
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import pre_delete
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from django.utils.text import slugify
-from django.utils.html import format_html
+# from django.utils.html import format_html
 from django.utils.crypto import get_random_string
+from sorl.thumbnail import ImageField
+
 
 
 class SlugMixin(object):
@@ -43,7 +45,7 @@ class Categoria(SlugMixin, models.Model):
         ('recamaras', 'Recamaras'),
         )
     cat_mueble = models.CharField("Categoria del mueble", max_length=10, choices=CAT_M, default='ninguno')
-    imagen_categoria = models.ImageField("Foto de Categoria", upload_to=change_file_name, max_length=50)
+    imagen_categoria = ImageField("Foto de Categoria", upload_to=change_file_name, max_length=50)
     slug = models.CharField(max_length=140, unique=True, blank=True)
 
     def get_absolute_url(self):
@@ -60,6 +62,7 @@ class Categoria(SlugMixin, models.Model):
 
     def __str__(self):
         return self.cat_mueble
+
 
 @receiver(pre_delete, sender=Categoria)
 def delte_fotos(sender, instance, **kwargs):

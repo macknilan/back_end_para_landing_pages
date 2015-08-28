@@ -6,7 +6,7 @@ from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from django.utils.crypto import get_random_string
 from django.utils.text import slugify
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
 from ckeditor.fields import RichTextField
 from categorias.models import Categoria
