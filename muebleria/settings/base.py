@@ -37,8 +37,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA 1ra LINEA
-    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware', # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA 1ra LINEA
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,8 +46,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA ULTIMA LINEA
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware', # ESTO PARA USAR CACHING PERO EN PRODUCCION EN LA ULTIMA LINEA
 )
 
 ROOT_URLCONF = 'muebleria.urls'
