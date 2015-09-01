@@ -44,7 +44,7 @@ CACHES = {
 }
 
 # --------------------------------- DATABASE ---------------------------------
-
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

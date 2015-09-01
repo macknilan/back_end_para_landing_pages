@@ -11,7 +11,6 @@ from django.utils.crypto import get_random_string
 from sorl.thumbnail import ImageField
 
 
-
 class SlugMixin(object):
 
     def get_slug(self, text, model):
