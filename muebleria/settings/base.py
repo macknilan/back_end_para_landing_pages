@@ -32,7 +32,6 @@ INSTALLED_APPS = (
     'muebleria',
     'muebles',
     'categorias',
-    'sorl.thumbnail',
     'ckeditor',
 )
 
