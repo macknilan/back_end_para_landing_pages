@@ -8,9 +8,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-INSTALLED_APPS += (
-    'storages',
-)
+#  INSTALLED_APPS += (
+#      'storages',
+#  )
 
 # --------------------------------- CACHE ---------------------------------
 # PARA NO PEGARLE TAN DURO A LA b.d.
@@ -34,15 +34,13 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': [
-            'localhost:6379',
-        ],
+        'LOCATION': 'localhost:6379',
         'OPTIONS': {
             'DB': 1,
-            'PASSWORD': '',
-            'PARSER_CLASS': 'redis.connection.HiredisParser',
-        },
-    },
+            #  'PASSWORD': '',
+            'PARSER_CLASS': 'redis.connection.HiredisParser'
+        }
+    }
 }
 
 #  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'

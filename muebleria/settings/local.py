@@ -6,7 +6,7 @@ SECRET_KEY = os.environ['MUEBLERIALLAVE']
 
 INSTALLED_APPS += (
     'django_extensions',
-    'sorl.thumbnail',
+    'storages',
 )
 
 DEBUG = True

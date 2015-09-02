@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     'muebles',
     'categorias',
     'ckeditor',
+    'sorl.thumbnail',
 )
 
 MIDDLEWARE_CLASSES = (
