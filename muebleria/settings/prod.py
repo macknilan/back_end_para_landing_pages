@@ -43,7 +43,7 @@ CACHES = {
     }
 }
 
-#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 #  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
 THUMBNAIL_FORCE_OVERWRITE = True
 
