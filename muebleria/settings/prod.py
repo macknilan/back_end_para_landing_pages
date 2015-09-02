@@ -45,7 +45,6 @@ CACHES = {
 
 #  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 #  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
-#  THUMBNAIL_DEBUG = True
 THUMBNAIL_FORMAT = 'PNG'
 THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 THUMBNAIL_REDIS_HOST = 'localhost'
