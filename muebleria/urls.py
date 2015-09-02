@@ -43,17 +43,16 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-
-# if settings.DEBUG:
-    """
-    PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
-    """
-#    urlpatterns += [
-#        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, }),
-#        ]
-
-# if settings.DEBUG:
-    """
-    PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
-    """
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#  if settings.DEBUG:
+#      """
+#      PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+#      """
+#     urlpatterns += [
+#         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, }),
+#         ]
+#  
+#  if settings.DEBUG:
+#      """
+#      PARA SERVIR LOS ARCHIVOS DE MEDIA EN DESARROLLO "NO EN PRODUCCION" CUANDO DEGUB=True
+#      """
+#      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

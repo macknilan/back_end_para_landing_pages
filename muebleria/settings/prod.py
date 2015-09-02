@@ -8,13 +8,13 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-#  INSTALLED_APPS += (
-#      'storages',
-#  )
+INSTALLED_APPS += (
+    'storages',
+)
 
 # --------------------------------- CACHE ---------------------------------
 # PARA NO PEGARLE TAN DURO A LA b.d.
-# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # --------------------------------- CACHE ---------------------------------
 
 # --------------------------------- DATABASE ---------------------------------
@@ -43,12 +43,10 @@ CACHES = {
     }
 }
 
-#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-#  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
-THUMBNAIL_FORMAT = 'PNG'
 THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-THUMBNAIL_REDIS_HOST = 'localhost'
-THUMBNAIL_REDIS_PORT = 6379
+#  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
+THUMBNAIL_FORCE_OVERWRITE = True
+
 # --------------------------------- DATABASE ---------------------------------
 # ---------------------- STATIC & MEDIA FIELDS ----------------------
 # Static files (CSS, JavaScript, Images)
@@ -60,17 +58,18 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-# STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
-
 STATICFILES_FINDERS = (
     # BUSCA LOS ARCHIVOS ESTATICOS EN EL SISTEMA DE ARCHIVOS
     'django.contrib.staticfiles.finders.FileSystemFinder',
     # BUSCA LOS ARCHIVOS ESTATICOS EN LA CARPETAS DE LAS APLICACIONES
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION _DEBUG_=_False_
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
+# STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
+
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
@@ -99,3 +98,4 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 # Set this to True to avoid transmitting the session cookie over HTTP accidentally.
 # SESSION_COOKIE_SECURE = True
+
