@@ -14,7 +14,7 @@ INSTALLED_APPS += (
 
 # --------------------------------- CACHE ---------------------------------
 # PARA NO PEGARLE TAN DURO A LA b.d.
-# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # --------------------------------- CACHE ---------------------------------
 
 # --------------------------------- DATABASE ---------------------------------
@@ -43,8 +43,8 @@ CACHES = {
     }
 }
 
-#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+#  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
 THUMBNAIL_FORCE_OVERWRITE = True
 
 # --------------------------------- DATABASE ---------------------------------
