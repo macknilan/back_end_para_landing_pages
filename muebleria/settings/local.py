@@ -12,7 +12,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# --------------------------------- DATABASE ---------------------------------
+# ################ DATABASE ################
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
@@ -32,22 +32,17 @@ DATABASES = {
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-# --------------------------------- DATABASE ---------------------------------
+# ################ DATABASE ################
 
-# ---------------------- STATIC & MEDIA FIELDS ----------------------
+# ########### STATIC & MEDIA FIELDS ###########
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'muebleria/static'),
 )
-
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
-# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 STATICFILES_FINDERS = (
     # BUSCA LOS ARCHIVOS ESTATICOS EN EL SISTEMA DE ARCHIVOS
@@ -56,17 +51,22 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 
-# ------------- CKEDITOR -------------
+# ######- CKEDITOR ######
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
-# ------------- CKEDITOR -------------
-# ---------------------- STATIC & MEDIA FIELDS ----------------------
-# ----------------------SEND EMAILS----------------------
+# ###### CKEDITOR ######
+# ########### STATIC & MEDIA FIELDS ###########
+# ########### SEND EMAILS ###########
 EMAIL_USE_TLS = True
 """EMAIL_HOST = 'EMAIL_HOST'"""
 EMAIL_HOST = 'smtp.gmail.com'
@@ -75,8 +75,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'nomackayu@gmail.com'
 """EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'"""
 EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
-# ----------------------SEND EMAILS----------------------
-# ---------------------------------- django-ckeditor ----------------------------------
+# ########### SEND EMAILS ###########
+# ################# DJANGO-CKEDITOR #################
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'UltraFull',
@@ -98,7 +98,7 @@ CKEDITOR_CONFIGS = {
         'forcePasteAsPlainText': True,
     },
 }
-# ---------------------------------- django-ckeditor ----------------------------------
+# ################# DJANGO-CKEDITOR #################
 
 
 

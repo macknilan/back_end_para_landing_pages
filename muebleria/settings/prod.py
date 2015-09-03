@@ -12,12 +12,12 @@ INSTALLED_APPS += (
     'storages',
 )
 
-# --------------------------------- CACHE ---------------------------------
+# ################- CACHE ################
 # PARA NO PEGARLE TAN DURO A LA b.d.
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
-# --------------------------------- CACHE ---------------------------------
+# ################- CACHE ################-
 
-# --------------------------------- DATABASE ---------------------------------
+# ################- DATABASE ################
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
@@ -43,20 +43,19 @@ CACHES = {
     }
 }
 
-THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-#  THUMBNAIL_KVSTORE = 'rorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
+#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 THUMBNAIL_FORCE_OVERWRITE = True
 THUMBNAIL_DEBUG = True
 
-# --------------------------------- DATABASE ---------------------------------
-# ---------------------- STATIC & MEDIA FIELDS ----------------------
+# ################- DATABASE ################
+# ########### STATIC & MEDIA FIELDS ###########
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 # STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'muebleria/static'),
 )
 
 STATICFILES_FINDERS = (
@@ -76,12 +75,12 @@ STATICFILES_FINDERS = (
 # MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
 
-# ---------------------- STATIC & MEDIA FIELDS ----------------------
-# ---------------------- AWS S3 SETTINGS ----------------------
-# ------------- CKEDITOR -------------
+# ########### STATIC & MEDIA FIELDS ###########
+# ########### AWS S3 SETTINGS ###########
+# ######- CKEDITOR ######-
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
-# ------------- CKEDITOR -------------
+# ######- CKEDITOR ######-
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
 AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
@@ -92,7 +91,7 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-# ---------------------- AWS S3 SETTINGS ----------------------
+# ########### AWS S3 SETTINGS ###########
 
 # Set this to True to avoid transmitting the CSRF cookie over HTTP accidentally.
 # CSRF_COOKIE_SECURE = True
