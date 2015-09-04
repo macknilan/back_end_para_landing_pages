@@ -43,7 +43,7 @@ CACHES = {
     }
 }
 
-#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 THUMBNAIL_FORCE_OVERWRITE = True
 THUMBNAIL_DEBUG = True
 
@@ -73,7 +73,7 @@ STATICFILES_FINDERS = (
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'muebleria/media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ########### STATIC & MEDIA FIELDS ###########
 # ########### AWS S3 SETTINGS ###########
