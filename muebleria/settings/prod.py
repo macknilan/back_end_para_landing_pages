@@ -71,8 +71,8 @@ STATICFILES_FINDERS = (
 # STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ########### STATIC & MEDIA FIELDS ###########
