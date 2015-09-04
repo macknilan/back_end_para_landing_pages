@@ -41,7 +41,7 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'muebleria/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -54,7 +54,7 @@ STATICFILES_FINDERS = (
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION DEBUG = False
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 # PARA PONER CACHE LOS ARCHIVOS ESTATICOS EN PRODUCCION
-STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
