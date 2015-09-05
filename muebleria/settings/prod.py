@@ -14,7 +14,7 @@ INSTALLED_APPS += (
 
 # ################- CACHE ################
 # PARA NO PEGARLE TAN DURO A LA b.d.
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # ################- CACHE ################-
 
 # ################- DATABASE ################
@@ -31,21 +31,17 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost:6379',
-        'OPTIONS': {
-            'DB': 1,
-            #  'PASSWORD': '',
-            'PARSER_CLASS': 'redis.connection.HiredisParser'
-        }
-    }
-}
-
-THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-THUMBNAIL_FORCE_OVERWRITE = True
-THUMBNAIL_DEBUG = True
+#  CACHES = {
+#      'default': {
+#          'BACKEND': 'redis_cache.RedisCache',
+#          'LOCATION': 'localhost:6379',
+#          'OPTIONS': {
+#              'DB': 1,
+#              #  'PASSWORD': '',
+#              'PARSER_CLASS': 'redis.connection.HiredisParser'
+#          }
+#      }
+#  }
 
 # ################- DATABASE ################
 # ########### STATIC & MEDIA FIELDS ###########
@@ -75,7 +71,12 @@ STATICFILES_FINDERS = (
 # MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# ########### STATIC & MEDIA FIELDS ###########
+# ############################################ STATIC & MEDIA FIELDS ############################################
+# ##################### SORL-THUMBNAIL #####################
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+THUMBNAIL_FORCE_OVERWRITE = True
+THUMBNAIL_DEBUG = True
+# ##################### SORL-THUMBNAIL #####################
 # ########### AWS S3 SETTINGS ###########
 # ######- CKEDITOR ######-
 AWS_QUERYSTRING_AUTH = False
@@ -91,7 +92,7 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-# ########### AWS S3 SETTINGS ###########
+# ############################################ AWS S3 SETTINGS ############################################
 
 # Set this to True to avoid transmitting the CSRF cookie over HTTP accidentally.
 # CSRF_COOKIE_SECURE = True

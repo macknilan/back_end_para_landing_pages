@@ -34,7 +34,7 @@ DATABASES = {
 # }
 # ################ DATABASE ################
 
-# ########### STATIC & MEDIA FIELDS ###########
+# ############################################ STATIC & MEDIA FIELDS ############################################
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -57,15 +57,14 @@ STATICFILES_FINDERS = (
 STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
-
-
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
+# ############################################ STATIC & MEDIA FIELDS ############################################
 # ######- CKEDITOR ######
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ###### CKEDITOR ######
-# ########### STATIC & MEDIA FIELDS ###########
+
 # ########### SEND EMAILS ###########
 EMAIL_USE_TLS = True
 """EMAIL_HOST = 'EMAIL_HOST'"""
