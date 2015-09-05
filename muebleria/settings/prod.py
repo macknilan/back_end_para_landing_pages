@@ -6,7 +6,7 @@ SECRET_KEY = os.environ['MUEBLERIALLAVE']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '52.8.134.47']
 
 INSTALLED_APPS += (
     'storages',
