@@ -73,9 +73,9 @@ STATICFILES_FINDERS = (
 
 # ############################################ STATIC & MEDIA FIELDS ############################################
 # ##################### SORL-THUMBNAIL #####################
-#  THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-#  THUMBNAIL_FORCE_OVERWRITE = True
-#  THUMBNAIL_DEBUG = True
+THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+THUMBNAIL_FORCE_OVERWRITE = True
+THUMBNAIL_DEBUG = True
 # ##################### SORL-THUMBNAIL #####################
 # ########### AWS S3 SETTINGS ###########
 # ######- CKEDITOR ######-
