@@ -78,10 +78,10 @@ THUMBNAIL_FORCE_OVERWRITE = True
 THUMBNAIL_DEBUG = True
 # ##################### SORL-THUMBNAIL #####################
 # ########### AWS S3 SETTINGS ###########
-# ######- CKEDITOR ######-
+# ######- CKEDITOR ######
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
-# ######- CKEDITOR ######-
+# ######- CKEDITOR ######
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
 AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 AWS_STORAGE_BUCKET_NAME = 'muebleria'
