@@ -61,7 +61,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 # ############################################ STATIC & MEDIA FIELDS ############################################
 # ######- CKEDITOR ######
-AWS_QUERYSTRING_AUTH = False
+# AWS_QUERYSTRING_AUTH = False
 CKEDITOR_UPLOAD_PATH = "uploads_by_ckeditor/"
 # ###### CKEDITOR ######
 

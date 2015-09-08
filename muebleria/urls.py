@@ -21,9 +21,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'', include('muebles.urls')),
     url(r'', include('categorias.urls')),
+    url(r'^ckeditor/', include('ckeditor.urls')),
 ]
 #  handler404 = 'views.page_404'
 #  handler500 = 'views.page_500'
